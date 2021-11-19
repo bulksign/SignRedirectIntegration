@@ -10,19 +10,20 @@ This demo sample code shows how simple is to integrate digital signatures into y
 
 - when user is finishing the signing process, it gets redirected back to the initiating application 
 
-
+<br/>
 The integration code which enables the redirect after signing :
 <br/>
-<code>
+
+```
 envelope.OverwriteSignSettings = new SignSettingsApiModel()
 {
 
 	AutomaticFinishAfterSigning = true,
 	DocumentDownload = SignerDownloadDocumentActionTypeApi.RedirectToUrl, 
 	DocumentDownloadRedirectUrl = "http://localhost/WebSignRedirectIntegration/Home/FinishedSigning/?envelopeId={{#id#}}&email={{#email#}}"
-};
-</code>
 
+};
+```
 
 
 # How it looks from the user perspective
