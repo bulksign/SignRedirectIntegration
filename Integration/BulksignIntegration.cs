@@ -6,8 +6,8 @@ namespace Integration
 {
 	public class BulksignIntegration
 	{
-		private const string BulksignAccountEmail = "";
-		private const string BulksignAccountToken = "";
+		private const string userEmail = "";
+		private const string key = "";
 
 
 		public BulksignResult<SendEnvelopeResultApiModel> SendEnvelope(string filePath)
@@ -50,8 +50,8 @@ namespace Integration
 			};
 
 			AuthenticationApiModel auth = new AuthenticationApiModel();
-			auth.UserEmail = BulksignAccountEmail;
-			auth.Token = BulksignAccountToken;
+			auth.UserEmail = userEmail;
+			auth.Key = key;
 
 
 			BulksignResult<SendEnvelopeResultApiModel> result = api.SendEnvelope(auth, envelope);
