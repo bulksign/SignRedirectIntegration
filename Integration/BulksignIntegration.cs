@@ -13,8 +13,10 @@ namespace Integration
 		public BulksignResult<SendEnvelopeResultApiModel> SendEnvelope(string filePath)
 		{
 			//specify the integration url for on-premise version of Bulksign
-			//leave empty to target bulksign.com
-			BulkSignApi api = new BulkSignApi("http://localhost/stormapi/");
+			//BulksignApiClient api = new BulksignApiClient("http://bulksign_instance_api_endpoint/");
+
+			//to target bulksign.com, leave empty to target bulksign.com
+			BulksignApiClient api = new BulksignApiClient();
 
 			EnvelopeApiModel envelope = new EnvelopeApiModel();
 			envelope.Name = "Website Integration Sample";

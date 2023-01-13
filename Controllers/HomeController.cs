@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Bulksign.Api;
 using Integration;
 
@@ -29,6 +25,15 @@ namespace WebSignRedirectIntegration.Controllers
 		public ActionResult SendEnvelope()
 		{
 			BulksignResult<SendEnvelopeResultApiModel> result = new BulksignIntegration().SendEnvelope(this.Request.MapPath("~/TestFile/bulksign_test_sample.pdf"));
+
+			if (!result.IsSuccessful)
+			{
+				//the request failed, log the output here 
+
+				return RedirectToAction("Index");
+			}
+			
+			//if the SendEnvelope request was success, get the signing url for frist recipient and redirect to it 
 
 			string url = result.Response.RecipientAccess[0].SigningUrl;
 			
