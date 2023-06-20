@@ -35,7 +35,7 @@ namespace WebSignRedirectIntegration.Controllers
 			
 			//if the SendEnvelope request was success, get the signing url for frist recipient and redirect to it 
 
-			string url = result.Response.RecipientAccess[0].SigningUrl;
+			string url = result.Result.RecipientAccess[0].SigningUrl;
 			
 			return RedirectPermanent(url);
 		}
